@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    
+    @State private var showInfo = false
+    
     var body: some View {
         VStack(spacing: 23) {
             
@@ -27,10 +30,21 @@ struct WelcomeView: View {
                 .foregroundStyle(.secondary)
                 .padding(.horizontal)
             
+            if showInfo {
+                Text("SwiftUI helps you build beautiful apps with less code.")
+                    .font(.callout)
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(.primary.opacity(0.80))
+                    .padding()
+                    .transition(.opacity)
+            }
+            
             Button {
-                // Action will be added later
+                withAnimation {
+                    showInfo.toggle()
+                }
             } label: {
-                Text("View Info")
+                Text(showInfo ? "Hide Info" : "View Info")
                     .fontWeight(.semibold)
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -39,8 +53,6 @@ struct WelcomeView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 13))
             }
             .padding(.horizontal)
-            
-            //Spacer()
         }
         .padding()
     }
