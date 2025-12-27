@@ -5,7 +5,7 @@ A minimal swiftUI application that displays simple information using a clean and
 ## Features
 
 - SwiftUI-based layout
-- State management wit @State
+- State management with @State
 - Smooth animations
 - Minimal design principles
 
